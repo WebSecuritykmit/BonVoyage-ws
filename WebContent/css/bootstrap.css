@@ -2544,9 +2544,11 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 30%;
+  align:"center";
   height: 34px;
   padding: 6px 12px;
+  
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
