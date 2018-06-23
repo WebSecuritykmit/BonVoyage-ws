@@ -9,7 +9,7 @@ $('submit').click(function () {
 </script>
 
  
- <div class="container">
+ <div align="center">
  
  <H1>Registration </H1>
  
@@ -21,13 +21,13 @@ $('submit').click(function () {
 		<p>
 			<font color="red">${error}</font>
 		</p>
-			<input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" />
-			<input type="text" class="form-control" name="fullname" placeholder="Full Name" required="" autofocus="" />
+			<input type="text" class="form-control" name="Fullname" placeholder="Name" required="" autofocus="" />
+			<input type="text" class="form-control" name="Phone Number" placeholder="Phone number" required="" autofocus="" />
 			<input type="text" class="form-control" name="email" placeholder="Email ID" required="" autofocus="" />
 			<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required=""/>
 			<input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required=""/>
 			    	      
-      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Register</button> 
+      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Register</button> 
 			    	
 	</form>
  </div>

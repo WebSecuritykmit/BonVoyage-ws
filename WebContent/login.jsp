@@ -9,7 +9,7 @@
 			<input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" />
 			<input type="password" class="form-control" name="password" placeholder="Password" required=""/>
 			    	      
-      <button class="btn btn-lg btn-primary btn-block" type="submit" style= width:30%>Login</button> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Login</button> 
 			    	
 	</form>
 
