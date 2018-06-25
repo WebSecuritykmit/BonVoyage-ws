@@ -6,10 +6,10 @@
 		<p>
 			<font color="red">${error}</font>
 		</p>
-			<input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" />
-			<input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+			<input type="text" class="form-control" name="name" placeholder="Name" required="" autofocus="" /><br>	
+			<input type="password" class="form-control" name="password" placeholder="Password" required=""/><br>
 			    	      
-      <button class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Login</button> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Login</button> <br>
 			    	
 	</form>
 

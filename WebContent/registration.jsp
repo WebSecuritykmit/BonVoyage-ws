@@ -21,13 +21,13 @@ $('submit').click(function () {
 		<p>
 			<font color="red">${error}</font>
 		</p>
-			<input type="text" class="form-control" name="Fullname" placeholder="Name" required="" autofocus="" />
-			<input type="text" class="form-control" name="Phone Number" placeholder="Phone number" required="" autofocus="" />
-			<input type="text" class="form-control" name="email" placeholder="Email ID" required="" autofocus="" />
-			<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required=""/>
-			<input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required=""/>
+			<input type="text" class="form-control" name="Fullname" placeholder="Name" required="" autofocus="" /><br>
+			<input type="text" class="form-control" name="Phone Number" placeholder="Phone number" required="" autofocus="" /><br>
+			<input type="text" class="form-control" name="email" placeholder="Email ID" required="" autofocus="" /><br>
+			<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required=""/><br>
+			<input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required=""/><br>
 			    	      
-      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Register</button> 
+      <button id="submit" class="btn btn-lg btn-primary btn-block" type="submit" style= width:20%>Register</button> <br>
 			    	
 	</form>
  </div>
