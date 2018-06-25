@@ -97,6 +97,7 @@ $(document).ready(function(){
 					
 
 	</div><hr></div></div>
+	<!-- bug yet to be fixed -->
 	<div class="container">
 	<div class="container">
 	<div class="row">
