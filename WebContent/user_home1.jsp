@@ -90,12 +90,19 @@ color:rgb(149,19,158);
 	</div><br><br>
 	<div class="container">
 	<h2 style="text-align:center;">Most visited places</h2>	<br>
-	<canvas id="pieChart" style="width: 400px height:400px" />
+	<div class="row">
+	<div class="col-sm-6">
+	<canvas id="barchart" style="width: 400px height:400px" /></div>
+	<div class="col-sm-6">
+	<canvas id="pieChart" style="width: 400px height:400px" /></div>
+	</div>
+	
+	<br>
+    
 
     <script type="text/javascript">
-        (function(){
-
             var canvas = document.getElementById("pieChart"); 
+
             var myData = {
                 labels: ["Goa", "Banglore", "Mumbai", "Delhi", "Hyderabad"],
                 datasets: [
@@ -112,8 +119,40 @@ color:rgb(149,19,158);
                                                 data: myData,
                                                 options: { responsive: true } 
                                         });
-        })();
+          
+       
+
+        </script>
+        <script>
+       
+
+            var canvas = document.getElementById("barchart"); 
+
+            var myData = {
+                labels: ["Rajesh", "Suresh", "Ramesh", "Dinesh", "Aamam"],
+                datasets: [
+                    {
+                        label: 'People Used the app',
+                        data: [916, 214, 160, 60, 60],
+                        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                        hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                    }
+                ]
+            }
+            var myChart = new Chart(canvas, {
+                                                type: 'bar',
+                                                data: myData,
+                                                options: { responsive: true } 
+                                        });
+          
+       
+
+       
 	
+        
+        
+        
+        
 </script>
  
 	</div>	<br>
@@ -122,31 +161,24 @@ color:rgb(149,19,158);
 	
 	<div class="container" style="text-align:center;">
 	<div class="row">
-	<div class="col-sm-3 border our-advantages-grd-to-right" 
+	<div class="col-sm-6 border our-advantages-grd-to-right" 
 >
 	
 	<h2 style=" color:;text-decoration:underline;">Goa package</h2><br>
 	<p>KNOW MORE ABOUT GOA PACKAGE</p>	
 <br>
-	<a>more details</a><br><br>	
+	<a href="goa.jsp">more details</a><br><br>	
 	
 	
 	
 	</div>
-	<div class="col-sm-3 border our-advantages-grd-to-right">
-	<h2 style=" text-decoration:underline;">Mumbai package</h2><br>
-	<p>KNOW MORE ABOUT MUMBAI PACKAGE</p>	
+	<div class="col-sm-6 border our-advantages-grd-to-right">
+	<h2 style=" text-decoration:underline;">Tirupathi package</h2><br>
+	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
 <br>
-	<a>more details</a><br><br>	
+	<a href="#">more details</a><br><br>	
 	</div>
-	<div class="col-sm-3 border our-advantages-grd-to-right">
-	<h2 style=" text-decoration:underline;">Delhi package</h2><br>
 	
-	<p>KNOW MORE ABOUT DELHI PACKAGE</p><br>
-	<a>more details</a><br><br>
-	
-									
-
 	</div>
 	</div>
 	</div><br><br>
@@ -218,7 +250,7 @@ color:rgb(149,19,158);
 		</div><br>
 	
 	<div class="container plan" style="text-align:center">
-	<a href="" style="background-color:black;color:white;width:200px;height:200px;">Start planning your trip</a>
+	<a href="travelling.jsp" style="background-color:black;color:white;width:200px;height:200px;">Start planning your trip</a>
 	</div>
 	
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
