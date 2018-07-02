@@ -2,7 +2,7 @@
 <div class="container">
  <div align="center"  style= margin-top:2500px,margin-bottom:2500px>
  
- 	<form action="login.do" method="post" class="form-signin" width="100" height="100">
+ 	<form action="Login.do" method="post" class="form-signin" width="100" height="100">
 		<p>
 			<font color="red">${error}</font>
 		</p>
