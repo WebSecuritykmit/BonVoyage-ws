@@ -22,7 +22,7 @@ $('submit').click(function () {
 			<font color="red">${error}</font>
 		</p>
 			<input type="text" class="form-control" name="Fullname" placeholder="Name" required="" autofocus="" /><br>
-			<input type="text" class="form-control" name="Phone Number" placeholder="Phone number" required="" autofocus="" /><br>
+			<input type="text" class="form-control" name="PhoneNumber" placeholder="Phone number" required="" autofocus="" /><br>
 			<input type="text" class="form-control" name="email" placeholder="Email ID" required="" autofocus="" /><br>
 			<input type="password" class="form-control" id="password"  name="password" placeholder="Password" required=""/><br>
 			<input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required=""/><br>

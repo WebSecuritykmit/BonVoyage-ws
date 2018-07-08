@@ -178,6 +178,13 @@ color:rgb(149,19,158);
 <br>
 	<a href="#">more details</a><br><br>	
 	</div>
+	<div class="col-sm-6 border our-advantages-grd-to-right">
+	<h2 style=" text-decoration:underline;">Banglore package</h2><br>
+	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
+<br>
+	<a href="banglore_trip.jsp">more details</a><br><br>	
+	</div>
+	
 	
 	</div>
 	</div>
