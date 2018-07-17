@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -201,8 +202,34 @@ color:rgb(149,19,158);
 <span class="fa fa-star checked"></span>
 <span class="fa fa-star"></span>
 <span class="fa fa-star"></span></div>
-	<div class="col-sm-8" style="margin-top:30px;text-align:center;">
-	text   jksdjkdsands  d d da djhjdfhjdkfndks</div>
+<%--retrieving reviews from table users not updated yet --%>
+<%
+     
+      String uname=request.getParameter("username");
+      String sql;
+      ResultSet rs = null;
+      Class.forName("com.mysql.jdbc.Driver");
+		String url="jdbc:mysql://localhost/bonvoyage";
+		String username="root";
+		String password="root";
+		Connection con=(Connection)DriverManager.getConnection(url,username,password);
+      
+      sql="SELECT review FROM review  ";
+      PreparedStatement pstmt = con.prepareStatement(sql);
+      
+       rs= pstmt.executeQuery();
+      while(rs.next())
+                    {
+      %>          
+
+<div class="col-sm-8" style="margin-top:30px;text-align:center;">
+	<%=rs.getString(1)%> </div>
+    
+
+       <%        
+                }
+         %> 
+	
 
 	</div><hr>
 	

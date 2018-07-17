@@ -165,17 +165,17 @@
 <div class="row">
   <div class="column">
    <img src="images/karnataka1.jpg" style="width:100%">
-    <a href="karnataka-jain-temple.html" target="_blank">
+    <a href="#">
     <div class="image-text">DIVINE KARNATAKA TEMPLE TOUR<h5>07 Nights 08 Days</h5>    
     </div></a>
     
    <img src="images/karnataka2.jpg" style="width:100%">
-    <a href="karnataka-divine-tour.html" target="_blank">
+    <a href="#">
     <div class="image-text">KARNATAKA JAIN TEMPLE TOUR<h5>02 Nights 03 Days</h5>
     </div></a>
     
 	<img src="images/karnataka3.jpg" style="width:100%">
-    <a href="karnataka-coorg-kabani.html" target="_blank">
+    <a href="coorgwithkabini.jsp">
     <div class="image-text">COORG TOUR WITH KABINI<h5>04 Nights 05 Days</h5></div></a>
     
   
@@ -184,16 +184,16 @@
     
   <div class="column">
    <img src="images/karnataka5.jpg" style="width:100%">
-    <a href="karnataka-bangalore-mysore.html" target="_blank">
+    <a href="#" >
     <div class="image-text">BANGALORE MYSORE OOTY TOUR<h5>04 Nights 05 Days</h5></div></a>
     
        <img src="images/karnataka6.jpg" style="width:100%">
-    <a href="karnataka-coorg-sightseeing.html" target="_blank">
+    <a href="#" >
     <div class="image-text">COORG SIGHTSEEING TOUR<h5>03 Nights 04 Days</h5>    
     </div></a>
  
 	<img src="images/karnataka8.jpg" style="width:100%">
-    <a href="karnataka-mysore-nagarhole.html" target="_blank">
+    <a href="#">
     <div class="image-text">BANGALORE MYSORE NAGARHOLE TOUR<h5>05 Nights 06 Days</h5></div></a>
 
 	
