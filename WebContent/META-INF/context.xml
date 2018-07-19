@@ -3,8 +3,8 @@
     <Resource
         name="jdbc/bonvoyage" type="javax.sql.DataSource"
        
-        url="jdbc:mysql://localhost:3306/bonvoyage?autoReconnect=true&amp;allowMultiQueries=true"
+        url="jdbc:mysql://localhost/bonvoyage?autoReconnect=true&amp;allowMultiQueries=true"
         driverClassName="com.mysql.jdbc.Driver"
-        username="root" password="root"
+        username="root" password="mannu"
     />
 </Context>

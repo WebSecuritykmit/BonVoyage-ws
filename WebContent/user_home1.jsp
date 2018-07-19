@@ -27,6 +27,7 @@ color:rgb(149,19,158);
 </style>
 </head>
 <body>
+<%int userid=Integer.parseInt(request.getAttribute("userid").toString());%>
 <div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -193,88 +194,54 @@ color:rgb(149,19,158);
 	
 	
 	<marquee>Know some reviews</marquee><br>
-	<div class="container">
-	<div class="container">
-	<div class="row">
-	<div class="col-sm-4 style">
-	<img src="images/Unknown.png"  ><br><span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span></div>
+	
 <%--retrieving reviews from table users not updated yet --%>
 <%
      
       String uname=request.getParameter("username");
-      String sql;
-      ResultSet rs = null;
+      String sql,sql1;
+      ResultSet rs = null,rs1=null;
       Class.forName("com.mysql.jdbc.Driver");
 		String url="jdbc:mysql://localhost/bonvoyage";
 		String username="root";
-		String password="root";
+		String password="mannu";
 		Connection con=(Connection)DriverManager.getConnection(url,username,password);
       
       sql="SELECT review FROM review  ";
       PreparedStatement pstmt = con.prepareStatement(sql);
-      
+      sql1="SELECT rating FROM review where ratingstatus='"+"yes"+"'  ";
+      PreparedStatement pstmt1 = con.prepareStatement(sql1);
+
        rs= pstmt.executeQuery();
-      while(rs.next())
+       rs1= pstmt1.executeQuery();
+      while(rs1.next() && rs.next())
                     {
-      %>          
+      %>       
+      
+         
+<div class="row">
+	<div class="col-sm-4 style">
+	<img src="images/Unknown.png"  >
+	<br>
+	<%int k=Integer.parseInt(rs1.getString(1));%> 
+<%for(int i=0;i<5;i++){
+	if(i<k){
+	%>
+	<span class="fa fa-star checked"></span>	
+	<%
+	}
+	else{
+		%><span class="fa fa-star"></span><% 
+	}	}%></div>
+	
+	<div class="col-sm-8" style="margin-top:30px;text-align:center;">
+	<%=rs.getString(1)%> 
+</div>
 
-<div class="col-sm-8" style="margin-top:30px;text-align:center;">
-	<%=rs.getString(1)%> </div>
-    
-
-       <%        
+</div><hr><%        
                 }
          %> 
 	
-
-	</div><hr>
-	
-	<div class="row">
-	<div class="col-sm-4 style">
-	<img src="images/Unknown.png"  >
-	<br><span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span></div>
-	<div class="col-sm-8" style="margin-top:30px;text-align:center;">
-	text   jksdjkdsands  d d da djhjdfhjdkfndks</div>
-
-	</div><hr>
-	
-	
-	
-	<div class="row">
-	<div class="col-sm-4 style">
-	<img src="images/Unknown.png"  >
-	<br><span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star checked"></span>
-<span class="fa fa-star"></span></div>
-	<div class="col-sm-8" style="margin-top:30px;text-align:center;">
-	text   jksdjkdsands  d d da djhjdfhjdkfndks</div>
-
-	</div><hr>
-	
-	
-	<div class="row">
-	<div class="col-sm-4 style">
-	<img src="images/Unknown.png">
-	<br><span class="fa fa-star checked"></span>
-<span class="fa fa-star "></span>
-<span class="fa fa-star "></span>
-<span class="fa fa-star"></span>
-<span class="fa fa-star"></span></div>
-	<div class="col-sm-8" style="margin-top:30px;text-align:center;">
-	text   jksdjkdsands  d d da djhjdfhjdkfndks</div>
-
-	</div><hr>
-	</div></div><br>
 	
 	<div class="container" style="text-align:center;">
 	<h2 style="color:rgb(149,19,158);">Share your travel experience</h2><br>
