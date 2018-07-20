@@ -29,6 +29,7 @@
 	
 	
 <body>
+
 <div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -65,10 +66,10 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="user_home1.html" class="active">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="login.jsp">Login</a></li>
+								<!-- <li><a href="login.jsp">Login</a></li>
 								
 								<li><a href="registration.jsp">Register</a></li>
 								<li class="dropdown">
@@ -80,7 +81,7 @@
 										<li class="divider"></li>
 										
 									</ul>
-								</li>
+								</li> -->
 								<li><a href="mail.html">Mail Us</a></li>
 							</ul>
 						</nav>
@@ -91,127 +92,172 @@
 			</nav>
 		</div>
 	</div>
-	
-	<div class="container">
-	<h1 style="text-align:center;">Enter your destination</h1><br>
-	<div style="text-align:center;">
-	<form>
-<select name="destination">
-<option value="none"></option>
-<option value="Goa">Goa</option>
-<option value="Tirupathi">Tirupathi</option>
-</select><br>
-<br>
-<input type="Submit" value="Submit"></form></div>
+	<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
+		 
 	<hr width="50%">
 	<%
-	String name=request.getParameter("destination");
 	
-	if(name!=null && name.equals("Tirupathi")){%>
-	<div style="text-align:center;">You have selected <%= name %></div><br>
+	if(tripid==1){%>
+	<div style="text-align:center;">You have selected <%= "Goa" %></div><br>
+	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=goa+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />
+	
+	<div style="text-align:center;">
+	
+	<h2>Know  Goa  Bus  timings</h2><br>
+	
+	
+	
+	
+	<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+
+
+
+<table class="table table-striped">
+     <thead>
+      <tr>
+        <td><b>Train name</b></td>
+        <td><b>Date</b></td>
+        <td><b>Departure time</b></td>
+      </tr>
+    </thead>
+   
+   <%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://localhost:3306/bonvoyage";
+       String username="root";
+       String password="root";
+       String query="select * from travel where mode='"+"bus"+"' and stop_location='"+"goa"+"'";
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+    	   System.out.println(rs.getString("name"));
+   %>
+   <tbody>
+      <tr>
+        <td><%=rs.getString("name")%></td>
+        <td><%=rs.getDate("date")%></td>
+        <td><%=rs.getTime("time") %></td>
+      </tr>
+      
+    </tbody>
+          
+   <%
+       }
+   %>
+   </table>
+   <%
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>
+
+	
+	 
+    
+  
+</div>
+	
+	
+	<%
+		
+	}else if(tripid==2){%>
+		<div style="text-align:center;">You have selected <%= "Tirupathi" %></div><br>
 	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=goa+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />
 	
 	<div style="text-align:center;">
 	
 	<h2>Know  Tirupathi  Bus  timings</h2><br>
 	
-	 <table class="table table-striped">
-    <thead>
+	
+	
+	
+	<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+
+
+
+<table class="table table-striped">
+     <thead>
       <tr>
-       <td><b>Bus name</b></td>
+        <td><b>Bus name</b></td>
+        <td><b>Date</b></td>
         <td><b>Departure time</b></td>
-        <td><b>Duration</b></td>
       </tr>
     </thead>
-    <tbody>
+   
+   <%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://localhost:3306/bonvoyage";
+       String username="root";
+       String password="root";
+       String query="select * from travel where mode='"+"bus"+"' and stop_location='"+"banglore"+"'";
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+    	   System.out.println(rs.getString("name"));
+   %>
+   <tbody>
       <tr>
-        <td>Orange Tours And Travels </td>
-        <td>18:30</td>
-        <td>10:29</td>
+        <td><%=rs.getString("name")%></td>
+        <td><%=rs.getDate("date")%></td>
+        <td><%=rs.getTime("time") %></td>
       </tr>
-      <tr>
-        <td>Sri Krishna Travels </td>
-        <td>20:00</td>
-        <td>10:29</td>
-      </tr>
-      <tr>
-        <td>Kaveri Travels </td>
-        <td>20:15</td>
-        <td>10:29</td>
-      </tr>
-      <tr>
-        <td>Meghana Travels </td>
-        <td>18:00</td>
-        <td>21:30</td>
-      </tr>
+      
     </tbody>
-  </table>
-</div>
-	
-	
-	<%
-		
-	}else if(name!=null && name.equals("Goa")){%>
-		<div style="text-align:center;">You have selected <%= name %></div><br>
-	
-	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tirupathi+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe></div><br />
-	<h3>Know  Goa  Bus  timings</h3><br>
-	<div style="text-align:center;">
-	 <table class="table table-striped">
-    <thead>
-      <tr>
-       <td><b>Bus name</b></td>
-        <td><b>Departure time</b></td>
-        <td><b>Duration</b></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Orange Tours And Travels</td>
-        <td>16:45</td>
-        <td>14:22</td>
-      </tr>
-      <tr>
-        <td>SVR Tours and Travels</td>
-        <td>16:30</td>
-        <td>14:22</td>
-      </tr>
-      <tr>
-        <td>Paulo Travels</td>
-        <td>15:31</td>
-        <td>14:22</td>
-      </tr>
-      <tr>
-        <td>KTCL</td>
-        <td>17:30</td>
-        <td>14:22</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          
+   <%
+       }
+   %>
+   </table>
+   <%
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>
 
 	
-	<%}else if(name==null) {
-		 %>
-	
-	<div class="container">
-	<div class="background">
-	<div class="p" style="height:100px;">
-	<h1  >
-	Travel more,Enjoy more
-	
-	Bon Voyage ;)</h1>
-	</div>
-	</div></div>
+	 
+    
+  
+</div>
 	
 	
-	<%} %>
+	<% } %>
+	
 	
 	</div><br>
+	
 	<div style="text-align:center;">
-	<a href="schedule.jsp"><h2>Click here to prepare your schedule</h2></a></div>
-	
-	
+	<form action="schedule.jsp">
+
+<%session.setAttribute("tripid",tripid); %>
+<%session.setAttribute("userid",userid); %>
+<input type="submit" value="Click here to prepare your schedule"></form>
+	</div>
 	
 	
 	</body></html>

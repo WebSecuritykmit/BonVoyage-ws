@@ -64,22 +64,20 @@ color:rgb(149,19,158);
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="user_home1.html" class="active">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="login.jsp">Login</a></li>
-								
-								<li><a href="registration.jsp">Register</a></li>
-								<li class="dropdown">
+								<li><a href="index.html">Logout</a></li>
+								<!-- <li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><a href="codes.html">Codes</a></li>
+										<li><a href="about.html">About</a></li>
 										<li class="divider"></li>
-										<li><a href="icons.html">Icons</a></li>
+										<li><a href="gallery.html">Gallery</a></li>
 										<li class="divider"></li>
 										
 									</ul>
-								</li>
+								</li> -->
 								<li><a href="mail.html">Mail Us</a></li>
 							</ul>
 						</nav>
@@ -169,7 +167,9 @@ color:rgb(149,19,158);
 	<h2 style=" color:;text-decoration:underline;">Goa package</h2><br>
 	<p>KNOW MORE ABOUT GOA PACKAGE</p>	
 <br>
-	<a href="goa.jsp">more details</a><br><br>	
+	<form action="goa.jsp"><input name="uid" value="<%=userid%>"  type="hidden">
+    <input   type="submit"  value="more details"  >
+</form><br><br>	
 	
 	
 	
@@ -178,13 +178,18 @@ color:rgb(149,19,158);
 	<h2 style=" text-decoration:underline;">Tirupathi package</h2><br>
 	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
 <br>
-	<a href="#">more details</a><br><br>	
+	<form action="banglore.jsp"><input name="uid" value="<%=userid%>"  type="hidden">
+    <input   type="submit"  value="more details"  >
+</form><br><br>	
 	</div>
 	<div class="col-sm-6 border our-advantages-grd-to-right">
 	<h2 style=" text-decoration:underline;">Banglore package</h2><br>
 	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
 <br>
-	<a href="banglore_trip.jsp">more details</a><br><br>	
+<form action="banglore.jsp"><input name="uid" value="<%=userid%>"  type="hidden">
+    <input   type="submit"  value="more details"  >
+</form>
+	<br><br>	
 	</div>
 	
 	
@@ -204,12 +209,13 @@ color:rgb(149,19,158);
       Class.forName("com.mysql.jdbc.Driver");
 		String url="jdbc:mysql://localhost/bonvoyage";
 		String username="root";
-		String password="mannu";
+		String password="root";
 		Connection con=(Connection)DriverManager.getConnection(url,username,password);
       
       sql="SELECT review FROM review  ";
       PreparedStatement pstmt = con.prepareStatement(sql);
-      sql1="SELECT rating FROM review where ratingstatus='"+"yes"+"'  ";
+      //sql1="SELECT rating FROM review where ratingstatus='"+"yes"+"'  ";
+      sql1="SELECT rating FROM review where rated_status='"+"yes"+"'  ";
       PreparedStatement pstmt1 = con.prepareStatement(sql1);
 
        rs= pstmt.executeQuery();

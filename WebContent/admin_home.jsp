@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!--/tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Travel Trip Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	<meta name="keywords" content="BON VOYAGE Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
@@ -214,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="footer-agilem">
 				<div class="col-sm-8 col-xs-9 copy-w3lsright">
-					<p>© 2018 Travel Trip. All rights reserved | Design by <a href="http://w3layouts.com"> W3layouts.</a></p>
+					<p>© 2018 BON VOYAGE. All rights reserved | Design by <a href="http://w3layouts.com"> W3layouts.</a></p>
 				</div>
 				<div class="col-sm-4 col-xs-3 social-w3licon">
 					<a href="#" class="social-button twitter"><i class="fa fa-twitter"></i></a>

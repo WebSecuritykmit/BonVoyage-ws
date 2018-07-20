@@ -10,6 +10,7 @@
 	<link href="//fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 	</head>
 	<body>
+	
 	<div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -49,7 +50,7 @@
 								<li><a href="index.html" class="active">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="login.jsp">Login</a></li>
+								<!-- <li><a href="login.jsp">Login</a></li>
 								
 								<li><a href="registration.jsp">Register</a></li>
 								<li class="dropdown">
@@ -61,7 +62,7 @@
 										<li class="divider"></li>
 										
 									</ul>
-								</li>
+								</li> -->
 								<li><a href="mail.html">Mail Us</a></li>
 							</ul>
 						</nav>
@@ -74,21 +75,77 @@
 	</div>
 	
 
-	
-	<div class="container">
-	<table class="table table-striped" id="myTable">
-    <thead>
-  
-   <td></td>
-   <td><b>Destination</b></td>
-   <td><b>Starting time</td>
-   
+	<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
+ <%-- <%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
+ --%>
+
+<table class="table table-striped" id="mytable">
+     <thead>
+      <tr>
+        <td><b>Day</b></td>
+        <td><b>Destination</b></td>
+        <td><b>Start time</b></td>
       </tr>
-      </thead>
-      <tbody>
-      </tbody>
-      </table>
-	</div>
+    </thead>
+   
+
+   
+   <%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://localhost:3306/bonvoyage";
+       String username="root";
+       String password="root";
+       String query="select * from schedule where uid='"+userid+"'";
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       System.out.println(tripid);
+       System.out.println(userid);
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+    	   System.out.println(rs.getString("destination"));
+   %>
+   
+   <tbody>
+      <tr>
+        <td><%=rs.getInt("day")%></td>
+        <td><%=rs.getString("destination")%></td>
+        <td><%=rs.getInt("time") %></td>
+      </tr>
+      
+    </tbody>
+          
+   <%
+       }
+   %>
+   </table>
+   <%
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>
+
+	
+	 
+    <br>
+    <br>
+    <br>
+  
+
+	
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script text="javascript">
@@ -106,20 +163,30 @@
 });
 	});
 </script>
+ 
+<form action="sch" method="post">
 <div class="container">
 	
   <div class="form-group">
+  <%=userid %>
+ 
     <label for="exampleFormControlInput1">Destination name</label>
-    <input type="text" class="form-control" id="name" placeholder="" name="destination" >
+    <input type="text" class="form-control" id="name" placeholder="" name="name" >
   </div>
    <div class="form-group">
     <label for="exampleFormControlInput1">Start time</label>
-    <input type="text" class="form-control" id="time" placeholder="" name="starttime">
+    <input type="text" class="form-control" id="time" placeholder="" name="time">
+    
   </div>
-  
-	
-	<button class="add-row btn btn-info">Click me</button>
-	</div>
+   <div class="form-group">
+    <label for="exampleFormControlInput1">Day</label>
+    <input type="text" class="form-control" id="day" placeholder="" name="day">
+    
+  </div>
+  <input type="hidden" value=<%= userid%> name="userid">
+    <input type="hidden" value=<%=tripid %> name="tripid">
+	<input type="submit" value="Click me">
+	</div></form>
 	</body>
 	</html>
 	  

@@ -84,22 +84,10 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="user_home1.html" class="active">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="login.jsp">Login</a></li>
 								
-								<li><a href="registration.jsp">Register</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="codes.html">Codes</a></li>
-										<li class="divider"></li>
-										<li><a href="icons.html">Icons</a></li>
-										<li class="divider"></li>
-										
-									</ul>
-								</li>
 								<li><a href="mail.html">Mail Us</a></li>
 							</ul>
 						</nav>
@@ -117,8 +105,18 @@
 	<div class="flight"><br><br><br><br><br>
 	<div class="p"><br>
 	<p style="text-align:center;">Get all the flight details by clicking here</p><br>
-	<a href="flight.jsp"><button class="btn btn-info">Flight details</button>
-	</a></div>
+	<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
+
+<form action="flight.jsp">
+
+ 
+
+<%session.setAttribute("tripid",tripid); %>
+<%session.setAttribute("userid",userid); %>
+<input type="submit" value="Flight details" class="btn btn-info">
+</form>
+	</div>
 	</div><br><br>
 	
 	
@@ -137,8 +135,10 @@
 	</div><br><br>
 	
 	
-	<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%-- <%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
 <%session.setAttribute("tripid",tripid); %>	
+<%session.setAttribute("userid",userid); %>	 --%>
 	</div>
 	
 	

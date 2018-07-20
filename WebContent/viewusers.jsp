@@ -52,7 +52,7 @@
 String id = request.getParameter("userId");
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "jsptutorials";
+String dbName = "bonvoyage";
 String userId = "root";
 String password = "root";
 

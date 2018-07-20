@@ -29,6 +29,7 @@
 	
 	
 <body>
+
 <div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -65,10 +66,10 @@
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<nav>
 							<ul class="nav navbar-nav">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="user_home1.html" class="active">Home</a></li>
 								<li><a href="about.html">About</a></li>
 								<li><a href="gallery.html">Gallery</a></li>
-								<li><a href="login.jsp">Login</a></li>
+								<!-- <li><a href="login.jsp">Login</a></li>
 								
 								<li><a href="registration.jsp">Register</a></li>
 								<li class="dropdown">
@@ -80,7 +81,7 @@
 										<li class="divider"></li>
 										
 									</ul>
-								</li>
+								</li> -->
 								<li><a href="mail.html">Mail Us</a></li>
 							</ul>
 						</nav>
@@ -91,19 +92,9 @@
 			</nav>
 		</div>
 	</div>
-		<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
-	
-	<!--  <div class="container">
-	<h1 style="text-align:center;">Enter your destination</h1><br>
-	<div style="text-align:center;">
-	<form>
-<select name="destination">
-
-<option value="Goa">Goa</option>
-<option value="Tirupathi">Tirupathi</option>
-</select><br>
-<br>
-<input type="Submit" value="Submit"></form></div>-->
+	<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
+	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
+		 
 	<hr width="50%">
 	<%
 	
@@ -115,37 +106,68 @@
 	
 	<h2>Know  Goa  flight  timings</h2><br>
 	
-	 <table class="table table-striped">
-    <thead>
+	
+	
+	
+	<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+
+
+
+<table class="table table-striped">
+     <thead>
       <tr>
         <td><b>Flight name</b></td>
-        <td><b>Arrival time</b></td>
+        <td><b>Date</b></td>
         <td><b>Departure time</b></td>
       </tr>
     </thead>
-    <tbody>
+   
+   <%
+   try
+   {
+       Class.forName("com.mysql.jdbc.Driver");
+       String url="jdbc:mysql://localhost:3306/bonvoyage";
+       String username="root";
+       String password="root";
+       String query="select * from travel where mode='"+"flight"+"' and stop_location='"+"goa"+"'";
+       Connection conn=DriverManager.getConnection(url, username, password);
+       Statement stmt=conn.createStatement();
+       ResultSet rs=stmt.executeQuery(query);
+       while(rs.next())
+       {
+    	   System.out.println(rs.getString("name"));
+   %>
+   <tbody>
       <tr>
-        <td>IndiGo</td>
-        <td>05:40</td>
-        <td>07:05</td>
+        <td><%=rs.getString("name")%></td>
+        <td><%=rs.getDate("date")%></td>
+        <td><%=rs.getTime("time") %></td>
       </tr>
-      <tr>
-        <td>Go Air</td>
-        <td>20:20</td>
-        <td>21:45</td>
-      </tr>
-      <tr>
-        <td>Air Asia</td>
-        <td>16:10</td>
-        <td>17:35</td>
-      </tr>
-      <tr>
-        <td>Spicejet</td>
-        <td>17:05</td>
-        <td>18:35</td>
-      </tr>
+      
     </tbody>
-  </table>
+          
+   <%
+       }
+   %>
+   </table>
+   <%
+        rs.close();
+        stmt.close();
+        conn.close();
+   }
+   catch(Exception e)
+   {
+        e.printStackTrace();
+   }
+   %>
+
+	
+	 
+    
+  
 </div>
 	
 	
@@ -197,7 +219,12 @@
 	</div><br>
 	
 	<div style="text-align:center;">
-	<a href="schedule.jsp"><h2>Click here to prepare your schedule</h2></a></div>
+	<form action="schedule.jsp">
+
+<%session.setAttribute("tripid",tripid); %>
+<%session.setAttribute("userid",userid); %>
+<input type="submit" value="Click here to prepare your schedule"></form>
+	</div>
 	
 	
 	</body></html>

@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			String url="jdbc:mysql://localhost/bonvoyage";
 			String username="root";
-			String password="mannu";
+			String password="root";
 			Connection con=(Connection)DriverManager.getConnection(url,username,password);
 			System.out.println("connected successfully here ");
 			try {

@@ -1,12 +1,7 @@
 
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +34,7 @@ public class rating extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		// TODO Auto-generated method stub
@@ -50,23 +46,25 @@ public class rating extends HttpServlet {
 	try{
 		System.out.println("connected successfully here ");
 			Class.forName("com.mysql.jdbc.Driver");
-			String url="jdbc:mysql://localhost/bonvoyage";
+			String url="jdbc:mysql://localhost:3306/bonvoyage";
 			String username="root";
-			String password="mannu";
+			String password="root";
 			Connection con=(Connection)DriverManager.getConnection(url,username,password);
 			System.out.println("connected successfully here ");
 			try {
 				if (con != null && !con.isClosed()) {
 					ResultSet rs = null;
 					String sql = "update review set rating='"+rating+"' where uid='"+uid+"' ";
-					String sql1="update review set ratingstatus='"+"yes"+"'  where uid='"+uid+"'";
-					PreparedStatement pstmt = con.prepareStatement(sql);
-					PreparedStatement pstmt1 = con.prepareStatement(sql1);
+					String sql1="update review set rated_status='"+"yes"+"'  where uid='"+uid+"'";
+					//Statement pstmt = con.prepareStatement(sql);
+			        Statement pstmt1 = con.prepareStatement(sql1);
 
-					 pstmt.executeUpdate();
-					 pstmt1.executeUpdate();
+					Statement pstmt = con.createStatement();
+					
+					int k= pstmt.executeUpdate(sql);
+					int p=pstmt1.executeUpdate(sql1);
 
-					if (rs != null && rs.next()) {
+					if (k != 0 ) {
 						request.getRequestDispatcher("reviewratings.jsp").forward(request, response);
 							
 						}
