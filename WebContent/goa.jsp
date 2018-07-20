@@ -954,14 +954,47 @@ Zuari River Zuari River is the largest river in the state of Goa, India. It is a
 	</div><br>
 	
 	
-	
+	<%int tripid=1; %>
 	<div class="container plan" style="text-align:center">
 <form action="travelling.jsp">
-<%int tripid=1; %>
-<%session.setAttribute("tripid",tripid); %>
+
+<%request.setAttribute("tripid",tripid); %><br>
 <input type="submit" value="start planning your trip">
 </form>
-	</div>
+	</div><br>
+	<div style="text-align:center;">
+	
+<button class="btn btn-primary" data-toggle="modal" data-target="#reviewmodal" style="text-align:center;">End trip</button>	
+</div>
+
+<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Place21modal">Give your review</h5>
+        
+       
+      </div>
+      <%String userid=session.getAttribute("userid").toString();%>
+      
+      <div class="modal-body" style="text-align:center">
+       <form action="submitreview.do" method="post">
+       
+
+       <textarea name="review">
+        </textarea><br>
+       <input name="userid" value=<%=userid %> type="hidden">
+       <input type="submit" value="submit your review">
+       <input name="tripid" value=<%= tripid%> type="hidden">
+       </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>

@@ -46,6 +46,7 @@
 			<div class="clearfix"> </div>
 			</div>
 		</div>
+		<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
 
 		<div class="content white">
 			<nav class="navbar navbar-default" role="navigation">
@@ -95,20 +96,11 @@
 	<div class="container">
 	<h1 style="text-align:center;">Enter your destination</h1><br>
 	<div style="text-align:center;">
-	<form>
-<select name="destination">
-<option value="none"></option>
-<option value="Goa">Goa</option>
-<option value="Tirupathi">Tirupathi</option>
-</select><br>
-<br>
-<input type="Submit" value="Submit"></form></div>
-	<hr width="50%">
-	<%
-	String name=request.getParameter("destination");
 	
-	if(name!=null && name.equals("Goa")){%>
-	<div style="text-align:center;">You have selected <%= name %></div><br>
+	<%
+	
+	if(tripid==1){%>
+	<div style="text-align:center;">You have selected <%= "GOA" %></div><br>
 	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=goa+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />
 	
 	<div style="text-align:center;">
@@ -136,8 +128,8 @@
 	
 	<%
 		
-	}else if(name!=null && name.equals("Tirupathi")){%>
-		<div style="text-align:center;">You have selected <%= name %></div><br>
+	}else if(tripid==2){%>
+		<div style="text-align:center;">You have selected <%="TIRUPATHI" %></div><br>
 	
 	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tirupathi+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe></div><br />
 	<h3>Know  Tirupathi  train  timings</h3><br>
@@ -175,24 +167,9 @@
   </table>
 </div>
 
-	
+<%} %>	
 
 		
-	<%}else if(name==null) {
-		 %>
-			
-	<div class="container">
-	<div class="background">
-	<div class="p" style="height:100px;">
-	<h1  >
-	Travel more,Enjoy more
-	
-	Bon Voyage ;)</h1>
-	</div>
-	</div></div>
-	
-	
-	<%} %>
 	
 	
 	</div><br>

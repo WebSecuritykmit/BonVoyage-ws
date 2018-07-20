@@ -27,7 +27,10 @@ color:rgb(149,19,158);
 </style>
 </head>
 <body>
-<%int userid=Integer.parseInt(request.getAttribute("userid").toString());%>
+<%String userid=(request.getAttribute("userid").toString());
+%>
+<%	session.setAttribute("userid", userid);
+ %>
 <div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -178,11 +181,11 @@ color:rgb(149,19,158);
 	<h2 style=" text-decoration:underline;">Tirupathi package</h2><br>
 	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
 <br>
-	<a href="#">more details</a><br><br>	
+	<a href="tirupathi.jsp">more details</a><br><br>	
 	</div>
 	<div class="col-sm-6 border our-advantages-grd-to-right">
 	<h2 style=" text-decoration:underline;">Banglore package</h2><br>
-	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
+	<p>KNOW MORE ABOUT Banglore PACKAGE</p>	
 <br>
 	<a href="banglore_trip.jsp">more details</a><br><br>	
 	</div>
