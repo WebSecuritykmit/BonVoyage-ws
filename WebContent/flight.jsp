@@ -175,46 +175,79 @@
 	<%
 		
 	}else if(tripid==2){%>
-		<div style="text-align:center;">You have selected <%= "Tirupathi" %></div><br>
-	
-	<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=tirupathi+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe></div><br />
-	<h3>Know  Tirupathi  flight  timings</h3><br>
-	<div style="text-align:center;">
-	 <table class="table table-striped">
-    <thead>
-      <tr>
-       <td><b>Flight name</b></td>
-        <td><b>Arrival time</b></td>
-        <td><b>Departure time</b></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>SpiceJet</td>
-        <td>05:50</td>
-        <td>07:00</td>
-      </tr>
-      <tr>
-        <td>IndiGo</td>
-        <td>6:25</td>
-        <td>7:50</td>
-      </tr>
-      <tr>
-        <td>Air India</td>
-        <td>12:35</td>
-        <td>13:40</td>
-      </tr>
-      <tr>
-        <td>IndoGo</td>
-        <td>19:10</td>
-        <td>20:35</td>
-      </tr>
-    </tbody>
-  </table>
+	<div style="text-align:center;">You have selected <%= "Goa" %></div><br>
+<div style="width: 100%"><iframe width="100%" height="500" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=goa+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Google map generator</a></iframe></div><br />
+
+<div style="text-align:center;">
+
+<h2>Know  Goa  flight  timings</h2><br>
+
+
+
+
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+
+
+
+<table class="table table-striped">
+ <thead>
+  <tr>
+    <td><b>Train name</b></td>
+    <td><b>Date</b></td>
+    <td><b>Departure time</b></td>
+  </tr>
+</thead>
+
+<%
+try
+{
+   Class.forName("com.mysql.jdbc.Driver");
+   String url="jdbc:mysql://localhost:3306/bonvoyage";
+   String username="root";
+   String password="root";
+   String query="select * from travel where mode='"+"flight"+"' and stop_location='"+"banglore"+"'";
+   Connection conn=DriverManager.getConnection(url, username, password);
+   Statement stmt=conn.createStatement();
+   ResultSet rs=stmt.executeQuery(query);
+   while(rs.next())
+   {
+	   System.out.println(rs.getString("name"));
+%>
+<tbody>
+  <tr>
+    <td><%=rs.getString("name")%></td>
+    <td><%=rs.getDate("date")%></td>
+    <td><%=rs.getTime("time") %></td>
+  </tr>
+  
+</tbody>
+      
+<%
+   }
+%>
+</table>
+<%
+    rs.close();
+    stmt.close();
+    conn.close();
+}
+catch(Exception e)
+{
+    e.printStackTrace();
+}
+%>
+
+
+ 
+
+
 </div>
 
-	
-	<%} %>
+
+<% } %>
 	
 	
 	</div><br>
