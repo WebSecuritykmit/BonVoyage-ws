@@ -92,6 +92,7 @@
 			</nav>
 		</div>
 	</div>
+	
 	<%int tripid=Integer.parseInt(session.getAttribute("tripid").toString()); %>
 	<%int userid=Integer.parseInt(session.getAttribute("userid").toString()); %>
 		 
