@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.UUID;
 import java.sql.*;
 
 import javax.servlet.ServletException;
@@ -43,6 +44,7 @@ public class Login extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name=request.getParameter("name");
 		String pass=request.getParameter("password");
+		request.setAttribute("username",name);
 		
 	try{
 		System.out.println("connected successfully here ");
@@ -50,6 +52,7 @@ public class Login extends HttpServlet {
 			String url="jdbc:mysql://localhost/bonvoyage";
 			String username="root";
 			String password="mannu";
+			request.getSession().setAttribute("csrfToken", generateCSRFToken());
 			Connection con=(Connection)DriverManager.getConnection(url,username,password);
 			System.out.println("connected successfully here ");
 			try {
@@ -100,6 +103,12 @@ public class Login extends HttpServlet {
 	} catch (ClassNotFoundException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
-	}}
+	}
+	
+	}
+	public static String generateCSRFToken(){
+		String token=UUID.randomUUID().toString();
+		return token;
+	}
 
 }

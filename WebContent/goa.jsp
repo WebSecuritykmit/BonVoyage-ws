@@ -106,6 +106,8 @@ color:rgb(149,19,158);}
 									</ul>
 								</li>
 								<li><a href="mail.html">Mail Us</a></li>
+																								<li><a href="account_update.jsp">UpdateProfile</a></li>
+								
 							</ul>
 						</nav>
 					</div>
