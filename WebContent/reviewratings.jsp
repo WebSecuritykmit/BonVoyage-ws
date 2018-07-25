@@ -79,8 +79,8 @@ h1 { font-size: 1.5em; margin: 10px; }
 		String password="root";
 		Connection con=(Connection)DriverManager.getConnection(url,username,password);
       
-      //sql="SELECT review FROM review where ratingstatus='"+"no"+"'  ";
-      //sql1="SELECT uid FROM review where ratingstatus='"+"no"+"' ";
+      //sql="SELECT review FROM review where rated_status='"+"no"+"'  ";
+      //sql1="SELECT uid FROM review where rated_status='"+"no"+"' ";
       sql="SELECT review FROM review where rated_status='"+"no"+"'  ";
       sql1="SELECT uid FROM review where rated_status='"+"no"+"' ";
       PreparedStatement pstmt = con.prepareStatement(sql);

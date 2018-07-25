@@ -27,7 +27,10 @@ color:rgb(149,19,158);
 </style>
 </head>
 <body>
-<%int userid=Integer.parseInt(request.getAttribute("userid").toString());%>
+<%int userid=Integer.parseInt(request.getAttribute("userid").toString());
+%>
+<%	session.setAttribute("userid", userid);
+ %>
 <div class="header">
 		<div class="top_menu_w3layouts">
 <div class="container">
@@ -79,6 +82,8 @@ color:rgb(149,19,158);
 									</ul>
 								</li> -->
 								<li><a href="mail.html">Mail Us</a></li>
+																								<li><a href="account_update.jsp">UpdateProfile</a></li>
+								
 							</ul>
 						</nav>
 					</div>
@@ -174,17 +179,21 @@ color:rgb(149,19,158);
 	
 	
 	</div>
-	<div class="col-sm-6 border our-advantages-grd-to-right">
+	<%-- <div class="col-sm-6 border our-advantages-grd-to-right">
 	<h2 style=" text-decoration:underline;">Tirupathi package</h2><br>
 	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
 <br>
+
 	<form action="banglore.jsp"><input name="uid" value="<%=userid%>"  type="hidden">
     <input   type="submit"  value="more details"  >
 </form><br><br>	
-	</div>
+
+	<a href="tirupathi.jsp">more details</a><br><br>	
+
+	</div> --%>
 	<div class="col-sm-6 border our-advantages-grd-to-right">
 	<h2 style=" text-decoration:underline;">Banglore package</h2><br>
-	<p>KNOW MORE ABOUT Tirupathi PACKAGE</p>	
+	<p>KNOW MORE ABOUT Banglore PACKAGE</p>	
 <br>
 <form action="banglore.jsp"><input name="uid" value="<%=userid%>"  type="hidden">
     <input   type="submit"  value="more details"  >
@@ -214,7 +223,7 @@ color:rgb(149,19,158);
       
       sql="SELECT review FROM review  ";
       PreparedStatement pstmt = con.prepareStatement(sql);
-      //sql1="SELECT rating FROM review where ratingstatus='"+"yes"+"'  ";
+      //sql1="SELECT rating FROM review where rated_status='"+"yes"+"'  ";
       sql1="SELECT rating FROM review where rated_status='"+"yes"+"'  ";
       PreparedStatement pstmt1 = con.prepareStatement(sql1);
 

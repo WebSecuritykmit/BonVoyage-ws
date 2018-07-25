@@ -914,7 +914,36 @@ The beach may not look very pretty due to a lot of litter, but this beach is fam
 	</div><br>
 	
 	
-	<%
+	
+	
+	<%-- <input type="submit" value="start planning your trip">
+</form>
+
+	</div>
+	<button class="btn btn-primary" data-toggle="modal" data-target="#reviewmodal">End trip</button>	
+
+
+<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Place21modal">Give your review</h5>
+        
+
+
+      </div>
+      
+      
+
+      <div class="modal-body" style="text-align:center">
+       <form action="submitreview.do" method="post">
+       
+
+
+       <textarea name="review">
+        </textarea>
+       
+       <%
      
       int userid=Integer.parseInt(request.getParameter("uid"));%>
 	<div class="container plan" style="text-align:center">
@@ -925,6 +954,50 @@ The beach may not look very pretty due to a lot of litter, but this beach is fam
 <input type="submit" value="start planning your trip">
 </form>
 	</div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+=======
+	</div><br>
+	<div style="text-align:center;">
+	
+<button class="btn btn-primary" data-toggle="modal" data-target="#reviewmodal" style="text-align:center;">End trip</button>	
+</div>
+
+<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Place21modal">Give your review</h5>
+        
+       
+      </div>
+   
+      
+      <div class="modal-body" style="text-align:center">
+       <form action="submitreview.do" method="post">
+       
+       <textarea name="review">
+        </textarea><br>
+       <input name="userid" value=<%=userid %> type="hidden">
+       <input type="submit" value="submit your review">
+       <input name="tripid" value=<%= tripid%> type="hidden">
+       </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+	
+	
+	
+	
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -932,4 +1005,97 @@ The beach may not look very pretty due to a lot of litter, but this beach is fam
 	</body>
 		
 	</html>
+ --%>	
+ <div class="container plan" style="text-align:center">
+	<%
+     
+      int userid=Integer.parseInt(request.getParameter("uid"));%>
+<form action="travelling.jsp">
+
+<!-- <<<<<<< HEAD -->
+<%int tripid=2; %>
+<%session.setAttribute("tripid",tripid); %>
+<%session.setAttribute("userid",userid); %>
+
+<%request.setAttribute("tripid",tripid); %><br>
+
+<input type="submit" value="start planning your trip">
+</form>
+
+	</div>
+	<button class="btn btn-primary" data-toggle="modal" data-target="#reviewmodal">End trip</button>	
+
+
+<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Place21modal">Give your review</h5>
+        
+
+       
+
+      </div>
+      
+      
+
+      <div class="modal-body" style="text-align:center">
+       <form action="submitreview.do" method="post">
+       
+
+
+       <textarea name="review">
+        </textarea>
+       
+       <input type="submit" value="submit your review">
+       <input name="tripid" value=<%= tripid%> type="hidden">
+        <input name="userid" value=<%= userid%> type="hidden">
+       </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+	</div><br>
+	<div style="text-align:center;">
 	
+<button class="btn btn-primary" data-toggle="modal" data-target="#reviewmodal" style="text-align:center;">End trip</button>	
+</div>
+
+<div class="modal fade" id="reviewmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="Place21modal">Give your review</h5>
+        
+       
+      </div>
+     <%--  <%String userid=session.getAttribute("userid").toString();%> --%>
+      
+      <div class="modal-body" style="text-align:center">
+       <form action="submitreview.do" method="post">
+       
+       <textarea name="review">
+        </textarea><br>
+       <input name="userid" value=<%=userid %> type="hidden">
+       <input type="submit" value="submit your review">
+       <input name="tripid" value=<%= tripid%> type="hidden">
+       </form>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+
+
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+	</body>
+		
+	</html>
+ 

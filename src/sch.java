@@ -58,15 +58,20 @@ public class sch extends HttpServlet {
 
 	//if (con != null && !con.isClosed()) {
 					ResultSet rs = null;
-					String sql = "insert into schedule(uid,day,destination,time) values('"+uid+"','"+Day+"','"+Destination+"','"+st+"') ";
-					//String sql1="update review set rated_status='"+"yes"+"'  where uid='"+uid+"'";
-					//Statement pstmt = con.prepareStatement(sql);
-			        //Statement pstmt1 = con.prepareStatement(sql1);
-
-					Statement pstmt = con.createStatement();
+					String sql = "insert into schedule(uid,day,destination,time) values(?,?,?,?) ";
+					String sql1="update review set rated_status=?  where uid=?";
+					PreparedStatement pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1,uid);
+					pstmt.setString(2,Day);
+					pstmt.setString(3,Destination);
+					pstmt.setString(4,Start_Time);
+			       PreparedStatement pstmt1 = con.prepareStatement(sql1);
+                   pstmt1.setString(1,"yes");
+                   pstmt1.setString(2,userid);
+					//Statement pstmt3 = con.createStatement();
 					
 					int k= pstmt.executeUpdate(sql);
-					//int p=pstmt1.executeUpdate(sql1);
+					int p=pstmt1.executeUpdate(sql1);
 
 					if (k != 0 ) {
 						request.getRequestDispatcher("schedule.jsp").forward(request, response);
